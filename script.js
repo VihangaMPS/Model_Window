@@ -9,7 +9,6 @@ const closeModal = function () {
 };
 
 const openModal = function () {
-  console.log('Button clicked !');
   model.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -19,5 +18,12 @@ for (let i = 0; i < btnOpenModel.length; i++) {
 }
 
 btnCloseModel.addEventListener('click', closeModal);
-
 overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  // console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
